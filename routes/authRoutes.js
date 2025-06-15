@@ -1,0 +1,15 @@
+// routes/authRoutes.js
+
+const express = require('express');
+const router = express.Router();
+
+// Ensure this import is correct and uses curly braces
+const { registerUser, loginUser } = require('../controllers/authController');
+
+// Route for registering a user
+router.post('/register', registerUser);
+
+// Route for logging in a user
+router.post('/login', loginUser);
+
+module.exports = router;
