@@ -4,6 +4,7 @@ const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const pharmacyRoutes = require('./routes/pharmacyRoutes.js');
 const essentialMedRoutes = require('./routes/essentialMedRoutes.js');
+const alternativeMedRoutes = require('./routes/alternativeMedRoutes.js');
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/pharmacies', pharmacyRoutes);
 app.use('/api/essential-medicines', essentialMedRoutes);
+app.use('/api/alternative-medicines', alternativeMedRoutes);
 
 
 const PORT = process.env.PORT || 5000;
