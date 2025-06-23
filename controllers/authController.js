@@ -1,18 +1,11 @@
-// controllers/authController.js
-
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
-
-// A helper function to generate a token
 const generateToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
         expiresIn: '30d',
     });
 };
 
-// @desc    Register a new user (the admin)
-// @route   POST /api/auth/register
-// @access  Public
 const registerUser = async (req, res) => {
     const { name, email, password } = req.body;
 
@@ -44,9 +37,6 @@ const registerUser = async (req, res) => {
     }
 };
 
-// @desc    Auth user & get token (Login)
-// @route   POST /api/auth/login
-// @access  Public
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
@@ -67,6 +57,4 @@ const loginUser = async (req, res) => {
         res.status(500).json({ message: 'Server Error', error: error.message });
     }
 };
-
-// Ensure this export is correct
 module.exports = { registerUser, loginUser };

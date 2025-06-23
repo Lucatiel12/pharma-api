@@ -1,10 +1,4 @@
-// controllers/pharmacyController.js
-
 const Pharmacy = require('../models/Pharmacy.js');
-
-// @desc    Create a new pharmacy
-// @route   POST /api/pharmacies
-// @access  Private/Admin
 const createPharmacy = async (req, res) => {
     const { name, address, phone } = req.body;
     try {
@@ -15,10 +9,6 @@ const createPharmacy = async (req, res) => {
         res.status(400).json({ message: 'Error creating pharmacy', error: error.message });
     }
 };
-
-// @desc    Get all pharmacies
-// @route   GET /api/pharmacies
-// @access  Public
 const getPharmacies = async (req, res) => {
     try {
         const pharmacies = await Pharmacy.find({});
@@ -28,9 +18,6 @@ const getPharmacies = async (req, res) => {
     }
 };
 
-// @desc    Update a pharmacy
-// @route   PUT /api/pharmacies/:id
-// @access  Private/Admin
 const updatePharmacy = async (req, res) => {
     const { name, address, phone } = req.body;
     try {
@@ -49,10 +36,6 @@ const updatePharmacy = async (req, res) => {
         res.status(400).json({ message: 'Error updating pharmacy', error: error.message });
     }
 };
-
-// @desc    Delete a pharmacy
-// @route   DELETE /api/pharmacies/:id
-// @access  Private/Admin
 const deletePharmacy = async (req, res) => {
     try {
         const pharmacy = await Pharmacy.findById(req.params.id);

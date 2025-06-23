@@ -9,14 +9,13 @@ const alternativeMedicineSchema = new mongoose.Schema({
         type: String,
     },
     essentialMedicine: {
-        type: mongoose.Schema.Types.ObjectId, // Stores the ID of an EssentialMedicine
+        type: mongoose.Schema.Types.ObjectId, 
         required: true,
-        ref: 'EssentialMedicine', // Specifies which model to link to
+        ref: 'EssentialMedicine', 
     },
-    // This creates a list of links to Pharmacy documents
     availableIn: [{
-        type: mongoose.Schema.Types.ObjectId, // An array of Pharmacy IDs
-        ref: 'Pharmacy', // Specifies which model to link to
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Pharmacy',
     }],
 }, {
     timestamps: true

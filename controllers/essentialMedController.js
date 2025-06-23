@@ -1,10 +1,4 @@
-// controllers/essentialMedController.js
-
 const EssentialMedicine = require('../models/EssentialMedicine.js');
-
-// @desc    Create a new essential medicine
-// @route   POST /api/essential-medicines
-// @access  Private/Admin
 const createEssentialMed = async (req, res) => {
     const { name, description } = req.body;
     try {
@@ -20,9 +14,6 @@ const createEssentialMed = async (req, res) => {
     }
 };
 
-// @desc    Get all essential medicines
-// @route   GET /api/essential-medicines
-// @access  Public
 const getEssentialMeds = async (req, res) => {
     try {
         const medicines = await EssentialMedicine.find({});
@@ -32,9 +23,6 @@ const getEssentialMeds = async (req, res) => {
     }
 };
 
-// @desc    Update an essential medicine
-// @route   PUT /api/essential-medicines/:id
-// @access  Private/Admin
 const updateEssentialMed = async (req, res) => {
     const { name, description } = req.body;
     try {
@@ -52,10 +40,6 @@ const updateEssentialMed = async (req, res) => {
         res.status(400).json({ message: 'Error updating medicine', error: error.message });
     }
 };
-
-// @desc    Delete an essential medicine
-// @route   DELETE /api/essential-medicines/:id
-// @access  Private/Admin
 const deleteEssentialMed = async (req, res) => {
     try {
         const medicine = await EssentialMedicine.findById(req.params.id);
